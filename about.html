@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZAI SAFARIS - Premium African Safaris</title>
+  <title>About Us - ZAI SAFARIS</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
@@ -127,10 +127,10 @@
       cursor: pointer;
     }
     
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('african-elephant-.jpg') no-repeat center center/cover;
-      height: 100vh;
+    /* Page Header */
+    .page-header {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('WWW-Grevys-Zebra-Grevy.jpg') no-repeat center center/cover;
+      height: 50vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -140,40 +140,137 @@
       padding-top: 80px;
     }
     
-    .hero h1 {
-      font-size: 4rem;
+    .page-header h1 {
+      font-size: 3.5rem;
       margin-bottom: 1rem;
       color: white;
       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
     }
     
-    .hero p {
-      font-size: 1.5rem;
-      max-width: 800px;
-      margin-bottom: 2rem;
+    .breadcrumb {
+      display: flex;
+      list-style: none;
     }
     
-    .btn {
-      display: inline-block;
+    .breadcrumb li {
+      margin: 0 10px;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+    
+    .breadcrumb li:after {
+      content: '/';
+      margin-left: 10px;
+      color: white;
+    }
+    
+    .breadcrumb li:last-child:after {
+      content: '';
+    }
+    
+    /* About Intro */
+    .about-intro {
+      padding: 80px 0;
+    }
+    
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+    
+    .about-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .about-text h2:after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: var(--secondary-color);
+      bottom: 0;
+      left: 0;
+    }
+    
+    .about-text p {
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    
+    .about-image {
+      position: relative;
+    }
+    
+    .about-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .experience-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
       background: var(--secondary-color);
       color: var(--dark-color);
-      padding: 12px 30px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
     }
     
-    .btn:hover {
-      background: var(--accent-color);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    .experience-badge span:first-child {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1;
     }
     
-    /* Features Section */
-    .features {
+    /* Mission Section */
+    .mission {
+      background: var(--light-color);
       padding: 80px 0;
-      background-color: var(--light-color);
+    }
+    
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+    
+    .mission-card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .mission-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .mission-icon {
+      font-size: 2.5rem;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+    }
+    
+    /* Team Section */
+    .team {
+      padding: 80px 0;
     }
     
     .section-title {
@@ -199,13 +296,13 @@
       transform: translateX(-50%);
     }
     
-    .features-grid {
+    .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
     }
     
-    .feature-card {
+    .team-member {
       background: white;
       border-radius: 10px;
       overflow: hidden;
@@ -213,83 +310,40 @@
       transition: transform 0.3s ease;
     }
     
-    .feature-card:hover {
+    .team-member:hover {
       transform: translateY(-10px);
     }
     
-    .feature-img {
-      height: 200px;
+    .team-img {
+      height: 300px;
       overflow: hidden;
     }
     
-    .feature-img img {
+    .team-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
     
-    .feature-card:hover .feature-img img {
+    .team-member:hover .team-img img {
       transform: scale(1.1);
     }
     
-    .feature-content {
+    .team-info {
       padding: 20px;
+      text-align: center;
     }
     
-    .feature-content h3 {
+    .team-info h3 {
       font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+    
+    .team-role {
+      color: var(--secondary-color);
+      font-weight: 600;
       margin-bottom: 10px;
-    }
-    
-    /* Testimonials */
-    .testimonials {
-      padding: 80px 0;
-      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('Zebra-Species-scaled.jpg') fixed;
-      background-size: cover;
-      color: white;
-    }
-    
-    .testimonials .section-title h2 {
-      color: white;
-    }
-    
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    
-    .testimonial-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      padding: 30px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .testimonial-text {
-      font-style: italic;
-      margin-bottom: 20px;
-    }
-    
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-    }
-    
-    .author-img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-right: 15px;
-    }
-    
-    .author-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
     
     /* Footer */
@@ -475,24 +529,41 @@
       
       .hamburger {
         display: block;
+      z-index: 1001;
+      position: relative;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      margin-right: 15px;
+    }
+      
+      .about-content {
+        grid-template-columns: 1fr;
       }
       
-      .hero h1 {
-        font-size: 3rem;
-      }
-      
-      .hero p {
-        font-size: 1.2rem;
+      .experience-badge {
+        right: 0;
+        bottom: -30px;
       }
     }
     
     @media (max-width: 768px) {
-      .hero h1 {
+      .page-header h1 {
         font-size: 2.5rem;
       }
       
-      .feature-card, .testimonial-card {
-        margin-bottom: 30px;
+      .about-text h2 {
+        font-size: 2rem;
+      }
+      
+      .experience-badge {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .experience-badge span:first-child {
+        font-size: 2rem;
       }
       
       .footer-newsletter form {
@@ -523,7 +594,7 @@
       
       <ul class="nav-menu">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html" class="active">About</a></li>
         <li><a href="safari.html">Safari</a></li>
         <li><a href="accommodation.html">Accommodation</a></li>
         <li><a href="activities.html">Activities</a></li>
@@ -533,114 +604,73 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Experience the Wild Like Never Before</h1>
-    <p>Luxury safaris in the heart of Africa's most breathtaking landscapes</p>
-    <a href="booknow.html" class="btn">Book Now</a>
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>About ZAI SAFARIS</h1>
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li>About Us</li>
+    </ul>
   </section>
 
-  <!-- Features Section -->
-  <section class="features">
+  <!-- About Intro -->
+  <section class="about-intro">
     <div class="container">
-      <div class="section-title">
-        <h2>Our Safari Experiences</h2>
-        <p>Discover the ultimate African adventure with our curated safari packages</p>
-      </div>
-      
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-img">
-            <img src="car.jpeg" alt="Luxury Safari">
-          </div>
-          <div class="feature-content">
-            <h3>Luxury Safari</h3>
-            <p>Experience the wild in ultimate comfort with our premium luxury safari packages, featuring exclusive lodges and personalized service.</p>
-            <a href="booknow.html" class="btn">Book Now</a>
-          </div>
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Us – ZAI Safaris</h2>
+          <p>At ZAI Safaris, we turn your African dream into reality. Based in Victoria Falls, we are a passionate safari operator and travel agency specializing in unforgettable wildlife adventures, tailored tours, and unique cultural experiences across Zimbabwe, Botswana, and Zambia.</p>
+          <p>With expert local guides, handpicked lodges, and thrilling activities from game drives to sunset cruises, every journey with us is crafted for adventure, comfort, and lasting memories.</p>
+
         </div>
-        
-        <div class="feature-card">
-          <div class="feature-img">
-            <img src="d0.jpg" alt="Adventure Safari">
-          </div>
-          <div class="feature-content">
-            <h3>Adventure Safari</h3>
-            <p>For the thrill-seekers, our adventure safaris offer close encounters with wildlife and immersive bush experiences.</p>
-            <a href="booknow.html" class="btn">Book Now</a>
-          </div>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-img">
-            <img src="Dinner-at-MaKuwa-Kuwa-Restaurant-at-Victoria-Falls-Safari-Lodge-scaled.webp" alt="Family Safari">
-          </div>
-          <div class="feature-content">
-            <h3>Family Safari</h3>
-            <p>Create unforgettable memories with our family-friendly safari packages designed for all ages.</p>
-            <a href="booknow.html" class="btn">Book Now</a>
+        <div class="about-image">
+          <img src="logo.png" alt="Safari Guide with Guests">
+          <div class="experience-badge">
+            <span>5+</span>
+            <span>Years of Experience</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials Section -->
-  <section class="testimonials">
+  <!-- Mission Section -->
+  <section class="mission">
     <div class="container">
       <div class="section-title">
-        <h2>What Our Guests Say</h2>
-        <p>Authentic experiences from travelers who explored with us</p>
+        <h2>Our Values</h2>
+        <p>The principles that guide everything we do</p>
       </div>
       
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-text">
-            <p>"The most incredible experience of our lives. The guides were knowledgeable, the accommodations were breathtaking, and the wildlife encounters were beyond our wildest dreams."</p>
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="mission-icon">
+            <i class="fas fa-leaf"></i>
           </div>
-          <div class="testimonial-author">
-            <div class="author-img">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="John Smith">
-            </div>
-            <div>
-              <h4>John Smith</h4>
-              <p>USA</p>
-            </div>
-          </div>
+          <h3>Sustainability</h3>
+          <p>We are committed to eco-friendly practices that minimize our environmental impact and contribute to conservation efforts.</p>
         </div>
         
-        <div class="testimonial-card">
-          <div class="testimonial-text">
-            <p>"ZAI SAFARIS exceeded all our expectations. Every detail was perfectly arranged, and we felt completely immersed in the African wilderness. We'll definitely be back!"</p>
+        <div class="mission-card">
+          <div class="mission-icon">
+            <i class="fas fa-hands-helping"></i>
           </div>
-          <div class="testimonial-author">
-            <div class="author-img">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Sarah Johnson">
-            </div>
-            <div>
-              <h4>Sarah Johnson</h4>
-              <p>UK</p>
-            </div>
-          </div>
+          <h3>Community</h3>
+          <p>We work closely with local communities, ensuring they benefit directly from tourism through employment and development projects.</p>
         </div>
         
-        <div class="testimonial-card">
-          <div class="testimonial-text">
-            <p>"As a photographer, I've been on many safaris, but ZAI SAFARIS provided the most incredible opportunities to capture wildlife in their natural habitat. Simply outstanding!"</p>
+        <div class="mission-card">
+          <div class="mission-icon">
+            <i class="fas fa-gem"></i>
           </div>
-          <div class="testimonial-author">
-            <div class="author-img">
-              <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Michael Chen">
-            </div>
-            <div>
-              <h4>Michael Chen</h4>
-              <p>Australia</p>
-            </div>
-          </div>
+          <h3>Quality</h3>
+          <p>From our expert guides to our accommodations, we maintain the highest standards to ensure exceptional experiences.</p>
         </div>
       </div>
     </div>
   </section>
+
+  
 
   <!-- Footer -->
   <footer>
@@ -708,12 +738,24 @@
     
     hamburger.addEventListener('click', () => {
       navMenu.classList.toggle('active');
+      
+      // Toggle hamburger icon
+      const icon = hamburger.querySelector('i');
+      if (navMenu.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
     });
     
     // Close mobile menu when clicking on a link
     document.querySelectorAll('.nav-menu a').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('active');
+        hamburger.querySelector('i').classList.remove('fa-times');
+        hamburger.querySelector('i').classList.add('fa-bars');
       });
     });
   </script>

@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Now - ZAI SAFARIS Victoria Falls</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2c6e49;
+      --secondary-color: #d4a373;
+      --accent-color: #e9c46a;
+      --dark-color: #1a1a1a;
+      --light-color: #f8f9fa;
+      --text-color: #333;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Raleway', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      background-color: #f8f9fa;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--dark-color);
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Header & Navigation */
+    header {
+      background-color: rgba(26, 26, 26, 0.95);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      padding: 15px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-menu li {
+      margin: 0 15px;
+    }
+    
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-menu a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--secondary-color);
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-menu a:hover:after {
+      width: 100%;
+    }
+    
+    .nav-menu a:hover {
+      color: var(--secondary-color);
+    }
+    
+    .book-now-btn {
+      background-color: var(--secondary-color);
+      color: var(--dark-color);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .book-now-btn:hover {
+      background-color: var(--accent-color);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+    }
+    
+    /* Page Header */
+    .page-header {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1516426122078-c23e76319801?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding-top: 80px;
+    }
+    
+    .page-header h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    
+    .breadcrumb {
+      display: flex;
+      list-style: none;
+    }
+    
+    .breadcrumb li {
+      margin: 0 10px;
+    }
+    
+    .breadcrumb a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+    
+    .breadcrumb li:after {
+      content: '/';
+      margin-left: 10px;
+      color: white;
+    }
+    
+    .breadcrumb li:last-child:after {
+      content: '';
+    }
+    
+    /* Booking Section */
+    .booking {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
+    }
+    
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: var(--secondary-color);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .booking-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    
+    @media (max-width: 992px) {
+      .booking-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Package Selection */
+    .package-selection {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .package-option {
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 2px solid #eee;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .package-option:hover {
+      border-color: var(--secondary-color);
+    }
+    
+    .package-option.selected {
+      border-color: var(--secondary-color);
+      background: rgba(212, 163, 115, 0.1);
+    }
+    
+    .package-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .package-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    
+    .package-price {
+      font-size: 1.4rem;
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+    
+    .package-details {
+      margin-bottom: 15px;
+    }
+    
+    .package-details li {
+      margin-bottom: 8px;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    .package-details li i {
+      color: var(--secondary-color);
+      margin-right: 10px;
+    }
+    
+    /* Custom Itinerary */
+    .custom-itinerary {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .itinerary-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .add-activity-btn {
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      border: none;
+      padding: 8px 15px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .add-activity-btn:hover {
+      background: var(--accent-color);
+    }
+    
+    .itinerary-items {
+      margin-bottom: 30px;
+    }
+    
+    .itinerary-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .item-details {
+      flex: 1;
+    }
+    
+    .item-name {
+      font-weight: 600;
+    }
+    
+    .item-price {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    
+    .item-actions {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .item-actions button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #999;
+      transition: color 0.3s ease;
+    }
+    
+    .item-actions button:hover {
+      color: var(--secondary-color);
+    }
+    
+    .itinerary-summary {
+      background: var(--light-color);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-top: 2px solid var(--secondary-color);
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+    
+    /* Booking Form */
+    .booking-form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .form-section {
+      margin-bottom: 30px;
+    }
+    
+    .form-section h3 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--light-color);
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 2px rgba(212, 163, 115, 0.3);
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+    }
+    
+    .btn:hover {
+      background: var(--accent-color);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .btn-full {
+      width: 100%;
+    }
+    
+    /* Activity Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal-content {
+      background: white;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 10px;
+      padding: 30px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .close-modal {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .activity-option {
+      padding: 15px;
+      border: 2px solid #eee;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .activity-option:hover {
+      border-color: var(--secondary-color);
+    }
+    
+    .activity-option.selected {
+      border-color: var(--secondary-color);
+      background: rgba(212, 163, 115, 0.1);
+    }
+    
+    .activity-name {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .activity-price {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark-color);
+      color: white;
+      padding: 60px 0 30px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+      margin-bottom: 20px;
+    }
+    
+    .footer-about p {
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+    
+    .footer-links h3, .footer-contact h3, .footer-newsletter h3 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--secondary-color);
+    }
+    
+    .footer-contact p {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      opacity: 0.8;
+    }
+    
+    .footer-contact i {
+      margin-right: 10px;
+      color: var(--secondary-color);
+    }
+    
+    .footer-newsletter form {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    
+    .footer-newsletter input {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+    }
+    
+    .footer-newsletter button {
+      background: var(--secondary-color);
+      color: var(--dark-color);
+      border: none;
+      padding: 0 15px;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--secondary-color);
+      transform: translateY(-3px);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .developer-credit {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    .developer-credit a {
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+    
+    /* WhatsApp Widget */
+    .whatsapp-widget {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 9999;
+    }
+    
+    .whatsapp-widget a {
+      display: flex;
+      align-items: center;
+      background-color: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+    
+    .whatsapp-widget a:hover {
+      background-color: #128C7E;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .whatsapp-widget i {
+      font-size: 24px;
+      margin-right: 8px;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .nav-menu {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        flex-direction: column;
+        background: var(--dark-color);
+        width: 100%;
+        height: calc(100vh - 80px);
+        padding: 50px 0;
+        transition: left 0.3s ease;
+      }
+      
+      .nav-menu.active {
+        left: 0;
+      }
+      
+      .nav-menu li {
+        margin: 15px 0;
+        text-align: center;
+      }
+      
+      .hamburger {
+        display: block;
+        z-index: 1001;
+        position: relative;
+        color: white;
+        font-size: 1.8rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        margin-right: 15px;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2.5rem;
+      }
+      
+      .footer-newsletter form {
+        flex-direction: column;
+      }
+      
+      .footer-newsletter input {
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+      
+      .footer-newsletter button {
+        border-radius: 4px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo">ZAI SAFARIS</a>
+      
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+      
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="safari.html">Safari</a></li>
+        <li><a href="accommodation.html">Accommodation</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="booknow.html" class="book-now-btn">Book Now</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>Book Your Adventure</h1>
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li>Book Now</li>
+    </ul>
+  </section>
+
+  <!-- Booking Section -->
+  <section class="booking">
+    <div class="container">
+      <div class="section-title">
+        <h2>Plan Your Safari</h2>
+        <p>Choose a package or create your own custom itinerary</p>
+      </div>
+      
+      <div class="booking-container">
+        <div class="package-selection">
+          <h3>Select a Package</h3>
+          
+          <div class="package-option" onclick="selectPackage(this)">
+            <div class="package-header">
+              <div class="package-title">Classic Safari</div>
+              <div class="package-price">$1,299</div>
+            </div>
+            <ul class="package-details">
+              <li><i class="fas fa-check"></i> 3 Days / 2 Nights</li>
+              <li><i class="fas fa-check"></i> 2 Game Drives</li>
+              <li><i class="fas fa-check"></i> Victoria Falls Tour</li>
+              <li><i class="fas fa-check"></i> Accommodation Included</li>
+              <li><i class="fas fa-check"></i> Breakfast & Dinner</li>
+            </ul>
+          </div>
+          
+          <div class="package-option" onclick="selectPackage(this)">
+            <div class="package-header">
+              <div class="package-title">Adventure Package</div>
+              <div class="package-price">$1,899</div>
+            </div>
+            <ul class="package-details">
+              <li><i class="fas fa-check"></i> 5 Days / 4 Nights</li>
+              <li><i class="fas fa-check"></i> White Water Rafting</li>
+              <li><i class="fas fa-check"></i> Bungee Jumping</li>
+              <li><i class="fas fa-check"></i> 3 Game Drives</li>
+              <li><i class="fas fa-check"></i> All Meals Included</li>
+            </ul>
+          </div>
+          
+          <div class="package-option" onclick="selectPackage(this)">
+            <div class="package-header">
+              <div class="package-title">Luxury Experience</div>
+              <div class="package-price">$2,499</div>
+            </div>
+            <ul class="package-details">
+              <li><i class="fas fa-check"></i> 7 Days / 6 Nights</li>
+              <li><i class="fas fa-check"></i> Helicopter Flight</li>
+              <li><i class="fas fa-check"></i> Private Guide</li>
+              <li><i class="fas fa-check"></i> Luxury Lodge Accommodation</li>
+              <li><i class="fas fa-check"></i> Gourmet Dining</li>
+            </ul>
+          </div>
+          
+          <div class="package-option" onclick="selectPackage(this)">
+            <div class="package-header">
+              <div class="package-title">Custom Itinerary</div>
+              <div class="package-price">Variable</div>
+            </div>
+            <ul class="package-details">
+              <li><i class="fas fa-check"></i> Choose your own activities</li>
+              <li><i class="fas fa-check"></i> Select accommodation type</li>
+              <li><i class="fas fa-check"></i> Set your own schedule</li>
+              <li><i class="fas fa-check"></i> Personalize your experience</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="custom-itinerary">
+          <div class="itinerary-header">
+            <h3>Your Itinerary</h3>
+            <button class="add-activity-btn" onclick="openActivityModal()">
+              <i class="fas fa-plus"></i> Add Activity
+            </button>
+          </div>
+          
+          <div class="itinerary-items">
+            <div class="itinerary-item">
+              <div class="item-details">
+                <div class="item-name">Victoria Falls Tour</div>
+                <div class="item-price">$45 per person</div>
+              </div>
+              <div class="item-actions">
+                <button><i class="fas fa-edit"></i></button>
+                <button><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+            
+            <div class="itinerary-item">
+              <div class="item-details">
+                <div class="item-name">Sunset Cruise</div>
+                <div class="item-price">$75 per person</div>
+              </div>
+              <div class="item-actions">
+                <button><i class="fas fa-edit"></i></button>
+                <button><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="itinerary-summary">
+            <div class="summary-item">
+              <span>Activities:</span>
+              <span>$120.00</span>
+            </div>
+            <div class="summary-item">
+              <span>Accommodation (3 nights):</span>
+              <span>$360.00</span>
+            </div>
+            <div class="summary-item">
+              <span>Taxes & Fees:</span>
+              <span>$48.00</span>
+            </div>
+            <div class="summary-total">
+              <span>Total:</span>
+              <span>$528.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Booking Form -->
+      <div class="booking-form">
+        <div class="form-section">
+          <h3>Personal Information</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" class="form-control" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" class="form-control" required>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-section">
+          <h3>Travel Details</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="arrivalDate">Arrival Date</label>
+              <input type="date" id="arrivalDate" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="departureDate">Departure Date</label>
+              <input type="date" id="departureDate" class="form-control" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="guests">Number of Guests</label>
+              <select id="guests" class="form-control" required>
+                <option value="">Select...</option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5+ Guests</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="accommodation">Accommodation Type</label>
+              <select id="accommodation" class="form-control" required>
+                <option value="">Select...</option>
+                <option value="hotel">Hotel</option>
+                <option value="lodge">Lodge</option>
+                <option value="camp">Safari Camp</option>
+                <option value="guesthouse">Guest House</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-section">
+          <h3>Special Requests</h3>
+          <div class="form-group">
+            <label for="requests">Additional Notes or Special Requirements</label>
+            <textarea id="requests" class="form-control" rows="4"></textarea>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn btn-full">Complete Booking</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activity Modal -->
+  <div class="modal" id="activityModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add Activities</h3>
+        <button class="close-modal" onclick="closeActivityModal()">&times;</button>
+      </div>
+      
+      <div class="activity-grid">
+        <div class="activity-option" onclick="toggleActivity(this)">
+          <div class="activity-name">Victoria Falls Tour</div>
+          <div class="activity-price">$45 per person</div>
+        </div>
+        
+        <div class="activity-option" onclick="toggleActivity(this)">
+          <div class="activity-name">White Water Rafting</div>
+          <div class="activity-price">$125 per person</div>
+        </div>
+        
+        <div class="activity-option" onclick="toggleActivity(this)">
+          <div class="activity-name">Helicopter Flight</div>
+          <div class="activity-price">$150 per person</div>
+        </div>
+        
+        <div class="activity-option" onclick="toggleActivity(this)">
+          <div class="activity-name">Bungee Jumping</div>
+          <div class="activity-price">$160 per person</div>
+        </div>
+        
+        <div class="activity-option" onclick="toggleActivity(this)">
+          <div class="activity-name">Sunset Cruise</div>
+          <div class="activity-price">$75 per person</div>
+        </div>
+        
+        <div class="activity-option" onclick="toggleActivity(this)">
+          <div class="activity-name">Game Drive</div>
+          <div class="activity-price">$85 per person</div>
+        </div>
+        
+        <div class="activity-option" onclick="toggleActivity(this)">
+          <div class="activity-name">Walking Safari</div>
+          <div class="activity-price">$70 per person</div>
+        </div>
+        
+        <div class="activity-option" onclick="toggleActivity(this)">
+          <div class="activity-name">Village Tour</div>
+          <div class="activity-price">$65 per person</div>
+        </div>
+      </div>
+      
+      <button class="btn btn-full" onclick="addSelectedActivities()">Add to Itinerary</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <div class="footer-logo">ZAI SAFARIS</div>
+          <p>Providing unforgettable safari experiences in the heart of Africa's most pristine wilderness areas for over 5 years.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="safari.html">Safari Packages</a></li>
+            <li><a href="accommodation.html">Accommodation</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> 123 Safari Road, Victoria Falls, Zimbabwe</p>
+          <p><i class="fas fa-phone"></i> +263 77 703 3869</p>
+          <p><i class="fas fa-envelope"></i> info@zaisafaris.com</p>
+        </div>
+        
+        <div class="footer-newsletter">
+          <h3>Newsletter</h3>
+          <p>Subscribe to our newsletter for updates and special offers.</p>
+          <form>
+            <input type="email" placeholder="Your Email Address">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 ZAI SAFARIS. All rights reserved.</p>
+        <p class="developer-credit">Website developed by <a href="https://pakamatech.co.zw/">Pakama Tech Solutions</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Widget -->
+  <div class="whatsapp-widget">
+    <a href="https://wa.me/263777033869" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i>
+      <span>Chat with Us</span>
+    </a>
+  </div>
+
+  <script>
+    // Mobile Navigation
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      
+      // Toggle hamburger icon
+      const icon = hamburger.querySelector('i');
+      if (navMenu.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburger.querySelector('i').classList.remove('fa-times');
+        hamburger.querySelector('i').classList.add('fa-bars');
+      });
+    });
+    
+    // Package Selection
+    function selectPackage(element) {
+      // Remove selected class from all packages
+      document.querySelectorAll('.package-option').forEach(pkg => {
+        pkg.classList.remove('selected');
+      });
+      
+      // Add selected class to clicked package
+      element.classList.add('selected');
+      
+      // If custom itinerary is selected, enable add activity button
+      const addButton = document.querySelector('.add-activity-btn');
+      if (element.querySelector('.package-title').textContent === 'Custom Itinerary') {
+        addButton.disabled = false;
+        addButton.style.opacity = '1';
+      } else {
+        addButton.disabled = true;
+        addButton.style.opacity = '0.7';
+      }
+    }
+    
+    // Activity Modal
+    function openActivityModal() {
+      document.getElementById('activityModal').style.display = 'flex';
+    }
+    
+    function closeActivityModal() {
+      document.getElementById('activityModal').style.display = 'none';
+    }
+    
+    function toggleActivity(element) {
+      element.classList.toggle('selected');
+    }
+    
+    function addSelectedActivities() {
+      const selectedActivities = document.querySelectorAll('.activity-option.selected');
+      const itineraryItems = document.querySelector('.itinerary-items');
+      
+      selectedActivities.forEach(activity => {
+        const name = activity.querySelector('.activity-name').textContent;
+        const price = activity.querySelector('.activity-price').textContent;
+        
+        const newItem = document.createElement('div');
+        newItem.className = 'itinerary-item';
+        newItem.innerHTML = `
+          <div class="item-details">
+            <div class="item-name">${name}</div>
+            <div class="item-price">${price}</div>
+          </div>
+          <div class="item-actions">
+            <button><i class="fas fa-edit"></i></button>
+            <button onclick="this.parentElement.parentElement.remove(); updateSummary()"><i class="fas fa-trash"></i></button>
+          </div>
+        `;
+        
+        itineraryItems.appendChild(newItem);
+      });
+      
+      updateSummary();
+      closeActivityModal();
+      
+      // Clear selections
+      document.querySelectorAll('.activity-option.selected').forEach(activity => {
+        activity.classList.remove('selected');
+      });
+    }
+    
+    function updateSummary() {
+      // This function would calculate the total based on selected items
+      // For demonstration, we'll just set a fixed value
+      document.querySelector('.summary-total span:last-child').textContent = '$528.00';
+    }
+    
+    // Form submission
+    document.querySelector('.booking-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your booking! We will contact you shortly to confirm your reservation.');
+    });
+  </script>
+</body>
+</html>
